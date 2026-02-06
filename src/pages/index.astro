@@ -3,16 +3,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
+  <!-- HERO -->
   <section class="section max-w-3xl">
     <span class="pill mb-4 inline-block">Available for new projects</span>
 
     <h1 class="h1">
-      Web Developer
+      Web Designer & Developer building fast, clean websites for modern brands.
     </h1>
 
     <p class="lead">
-    Building fast, clean websites for modern brands.I design with clarity, build with performance in mind.
-	SEO basics implemented, accessibility considered, and a focus on clean, maintainable code.
+      I design with clarity, build with performance in mind, and ship work that looks
+      expensive (without the drama).
     </p>
 
     <div class="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -21,11 +22,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </div>
   </section>
 
+  <!-- WORK -->
   <section id="work" class="section">
     <h2 class="h2">Selected Work</h2>
-    <p class="mt-2 text-zinc-300">Recent Projects</p>
+    <p class="mt-2 text-zinc-300">A few builds I’m proud of.</p>
 
     <div class="mt-10 grid gap-6 md:grid-cols-2">
+      <!-- Project 1 -->
       <article class="card">
         <div class="thumb-grid">
           <div class="thumb aspect-[16/10]">
@@ -64,6 +67,66 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           </a>
         </div>
       </article>
+
+      <!-- Project 2 -->
+      <article class="card">
+        <!-- Thumbnail -->
+        <div class="thumb aspect-[16/10] mb-6">
+          <img
+            src="/images/robert-mezian-1.jpg"
+            alt="robertmezian.com personal website"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="project-header">
+          <h3 class="text-lg font-medium">robertmezian.com</h3>
+          <span class="pill">Personal Site</span>
+        </div>
+
+        <p class="mt-4 text-zinc-300 text-center">
+          Personal website showcasing GitHub repositories, experiments, and
+          developer-focused projects.
+        </p>
+
+        <div class="mt-4 flex flex-wrap justify-center gap-2">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">GitHub API</span>
+        </div>
+
+        <ul class="mt-4 list-disc space-y-1 pl-5 text-sm text-zinc-300">
+          <li>Live GitHub repo showcase</li>
+          <li>Personal branding + experimentation</li>
+          <li>Fast, lightweight static build</li>
+        </ul>
+
+        <div class="mt-6 text-center">
+          <a
+            href="https://robertmezian.com"
+            target="_blank"
+            rel="noreferrer"
+            class="link-accent text-sm font-medium"
+          >
+            View site →
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <h2 class="h2">Contact</h2>
+    <p class="mt-2 text-zinc-300 text-center">
+      Have a project in mind? Let’s build something clean.
+    </p>
+
+    <div class="mt-6 flex flex-col gap-3 sm:flex-row justify-center">
+      <a href="mailto:ramezian94@protonmail.com" class="btn btn-primary">Email Me</a>
+      <a href="https://github.com/ramezian1" target="_blank" class="btn btn-ghost">GitHub</a>
+      <a href="https://www.linkedin.com/in/robert-mezian" target="_blank" class="btn btn-ghost">LinkedIn</a>
     </div>
   </section>
 </BaseLayout>
