@@ -1,0 +1,68 @@
+---
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bobby Mezian — Web Designer & Developer</title>
+    <meta name="description" content="I design and build fast, clean websites for modern brands." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="pointer-events-none fixed inset-0 -z-10">
+      <div class="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-blue-500/20 blur-3xl"></div>
+      <div class="absolute bottom-[-200px] right-[-150px] h-[450px] w-[450px] rounded-full bg-cyan-400/10 blur-3xl"></div>
+    </div>
+
+    <header
+      id="site-header"
+      class="glass-header sticky top-0 z-50 mx-auto max-w-6xl px-6 py-6 flex items-center justify-between"
+    >
+      <a href="/" class="font-medium tracking-tight">Bobby Mezian</a>
+
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="#work" class="navlink" data-spy="work">Work</a>
+        <a href="#process" class="navlink" data-spy="process">Process</a>
+        <a href="#contact" class="navlink" data-spy="contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-6">
+      <slot />
+    </main>
+
+    <footer class="mx-auto max-w-6xl px-6 py-10 text-sm text-zinc-400">
+      <div class="border-t border-white/10 pt-6 flex justify-between">
+        <span>© {new Date().getFullYear()} Bobby Mezian</span>
+        <span>Astro + Tailwind</span>
+      </div>
+    </footer>
+
+    <script is:inline>
+      const header = document.getElementById("site-header");
+      const links = Array.from(document.querySelectorAll(".navlink[data-spy]"));
+      const sections = links.map(a => document.getElementById(a.dataset.spy)).filter(Boolean);
+
+      const onScroll = () => {
+        header.classList.toggle("is-glass", window.scrollY > 12);
+        const y = window.scrollY + 140;
+        let active = sections[0]?.id;
+        for (const s of sections) if (s.offsetTop <= y) active = s.id;
+        links.forEach(a => a.classList.toggle("is-active", a.dataset.spy === active));
+      };
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+    </script>
+  </body>
+</html>
